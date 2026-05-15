@@ -1,0 +1,23 @@
+[package]
+name = "ibm-bob-assistant"
+version = "0.1.0"
+description = "A nostalgic desktop AI companion"
+authors = ["IBM Bob Team"]
+license = ""
+repository = ""
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = [ "window-set-always-on-top", "window-set-resizable", "window-set-icon", "window-set-position", "window-close", "window-unminimize", "window-minimize", "window-request-user-attention", "window-create", "window-hide", "window-start-dragging", "window-set-focus", "window-set-title", "window-set-size", "window-set-decorations", "window-show", "window-center", "dialog-all", "fs-read-dir", "fs-read-file", "fs-write-file", "fs-create-dir", "fs-exists", "path-all", "shell-execute", "shell-open", "notification-all", "global-shortcut-all", "clipboard-all", "http-all"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+chrono = "0.4"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

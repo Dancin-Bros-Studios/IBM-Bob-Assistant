@@ -1,0 +1,351 @@
+/* Retro Windows 95/98 Inspired Styles */
+
+:root {
+  /* Classic Windows 95 Colors */
+  --win95-gray: #c0c0c0;
+  --win95-dark-gray: #808080;
+  --win95-light-gray: #dfdfdf;
+  --win95-blue: #000080;
+  --win95-light-blue: #0000ff;
+  --win95-cyan: #008080;
+  --win95-white: #ffffff;
+  --win95-black: #000000;
+  --win95-yellow: #ffff00;
+  
+  /* UI Element Colors */
+  --window-bg: var(--win95-gray);
+  --window-border-light: var(--win95-white);
+  --window-border-dark: var(--win95-dark-gray);
+  --title-bar-bg: var(--win95-blue);
+  --title-bar-text: var(--win95-white);
+  --button-face: var(--win95-gray);
+  --button-shadow: var(--win95-dark-gray);
+  --button-highlight: var(--win95-white);
+  
+  /* Fonts */
+  --font-system: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+  --font-title: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-system);
+  font-size: 11px;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Window Container */
+.window {
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: var(--window-border-light) var(--window-border-dark) var(--window-border-dark) var(--window-border-light);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Title Bar */
+.title-bar {
+  background: linear-gradient(90deg, var(--win95-blue) 0%, var(--win95-cyan) 100%);
+  color: var(--title-bar-text);
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: move;
+  user-select: none;
+}
+
+.title-bar-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.title-bar-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+/* Buttons */
+.button {
+  background: var(--button-face);
+  border: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow) var(--button-shadow) var(--button-highlight);
+  padding: 4px 12px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  cursor: pointer;
+  outline: none;
+  min-width: 75px;
+  text-align: center;
+}
+
+.button:active {
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  padding: 5px 11px 3px 13px;
+}
+
+.button:disabled {
+  color: var(--win95-dark-gray);
+  cursor: not-allowed;
+}
+
+.button-small {
+  min-width: 16px;
+  width: 16px;
+  height: 14px;
+  padding: 0;
+  font-size: 9px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input Fields */
+.input {
+  background: var(--win95-white);
+  border: 2px solid;
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  padding: 4px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  outline: none;
+}
+
+.input:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -3px;
+}
+
+/* Textarea */
+.textarea {
+  background: var(--win95-white);
+  border: 2px solid;
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  padding: 4px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  outline: none;
+  resize: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--win95-white);
+  border: 1px solid var(--win95-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--button-face);
+  border: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow) var(--button-shadow) var(--button-highlight);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--button-face);
+  border: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow) var(--button-shadow) var(--button-highlight);
+  width: 16px;
+  height: 16px;
+}
+
+/* Panel/Container */
+.panel {
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  padding: 8px;
+}
+
+.panel-raised {
+  border-color: var(--button-highlight) var(--button-shadow) var(--button-shadow) var(--button-highlight);
+}
+
+/* Status Bar */
+.status-bar {
+  background: var(--window-bg);
+  border-top: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow);
+  padding: 2px 4px;
+  display: flex;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.status-bar-field {
+  border: 2px solid;
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  padding: 2px 4px;
+  flex: 1;
+}
+
+/* Checkbox */
+.checkbox {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 2px solid;
+  border-color: var(--button-shadow) var(--button-highlight) var(--button-highlight) var(--button-shadow);
+  background: var(--win95-white);
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 11px;
+  color: var(--win95-black);
+}
+
+/* Menu */
+.menu-bar {
+  background: var(--window-bg);
+  border-bottom: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow);
+  display: flex;
+  padding: 2px;
+}
+
+.menu-item {
+  padding: 4px 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-item:hover {
+  background: var(--win95-blue);
+  color: var(--win95-white);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: -2px;
+}
+
+.tab {
+  background: var(--button-face);
+  border: 2px solid;
+  border-color: var(--button-highlight) var(--button-shadow) transparent var(--button-highlight);
+  padding: 4px 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab.active {
+  background: var(--window-bg);
+  border-bottom-color: var(--window-bg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+.p-1 {
+  padding: 4px;
+}
+
+.p-2 {
+  padding: 8px;
+}
+
+.p-3 {
+  padding: 12px;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mb-1 {
+  margin-bottom: 4px;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* Made with Bob */
